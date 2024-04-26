@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import axios from "axios";
 
 function CheeseList(props) {
-    const { cheeses, setSelectedCheese, deleteCheese } = props;
+    const { cheeses, selectedCheese, setSelectedCheese, handleDelete } = props;
 
     const handleSelect = (cheese) => {
       setSelectedCheese(cheese);
@@ -30,7 +30,8 @@ function CheeseList(props) {
                         sx={{ 
                           maxWidth: 345,
                           width: 250,
-                          backgroundColor: "azure",
+                          backgroundColor: `${cheese.id === selectedCheese?.id ? "azure" : "white"}`,
+                          opacity: `${cheese.id === selectedCheese?.id ? "100%" : "60%"}`,
                           }}                
                       >
                         <CardHeader
@@ -38,13 +39,13 @@ function CheeseList(props) {
                         />
                         <CardMedia
                           component="img"
-                          height="150"
-                          src="../../public/images/brie.jpg"
+                          style={{ height: "150px" }}
+                          image={require(`../images/${cheese.image}`)}
                           alt={cheese.name}
                         />
                         <CardContent >
                           <Typography variant="body2" >
-                            {cheese.pricePerKilo}
+                            {cheese.pricePerKilo} per kilo
                           </Typography>
                           <Typography variant="body2">
                             {cheese.color}
@@ -52,7 +53,7 @@ function CheeseList(props) {
                         </CardContent>
                         <CardActions disableSpacing>
                           <Button size="small" onClick={() => handleSelect(cheese)}>Select</Button>
-                          <Button size="small" color='error' onClick={() => deleteCheese(cheese.id)}>delete</Button>
+                          <Button size="small" color='error' onClick={() => handleDelete(cheese.id)}>delete</Button>
                         </CardActions>
                       </Card>
                     </Grid>

@@ -18,6 +18,7 @@ function App() {
   const [isCheesesSelected, setIsCheesesSelected] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // All the api calls should be separated from this file is I have more time
   const refreshData = async () => {
       try {
         const response = await axios.get(baseUrl);
@@ -121,7 +122,7 @@ function App() {
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <CheeseList cheeses={cheeses} setSelectedCheese={setSelectedCheese} handleDelete={handleDelete}/>
+            <CheeseList cheeses={cheeses} selectedCheese={selectedCheese} setSelectedCheese={setSelectedCheese} handleDelete={handleDelete}/>
           </Grid>
         </Grid>
       </Box>

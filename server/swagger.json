@@ -1,0 +1,11 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PZ Cheeseria API",
+    "description": "API documentation for PZ Cheeseria",
+    "version": "1.0.0"
+  },
+  "basePath": "/api",
+  "schemes": ["http", "https"],
+  "paths": {}
+}
