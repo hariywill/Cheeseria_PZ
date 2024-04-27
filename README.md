@@ -24,7 +24,7 @@ The website allows users to perform essential CRUD actions on cheese data. When 
 
 Requires [Node.js](https://nodejs.org/) v14+ to run.
 
-Install the dependencies and devDependencies and start the server.
+Install the dependencies and start the server and client.
 
 ```sh
 cd server
