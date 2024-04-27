@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -8,7 +8,6 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 
-import axios from "axios";
 
 function CheeseList(props) {
     const { cheeses, selectedCheese, setSelectedCheese, handleDelete } = props;
@@ -25,7 +24,7 @@ function CheeseList(props) {
             <Grid item xs={12} md={12}>
                 <Grid container justifyContent="center" spacing={2}>
                   {cheeses.map((cheese) => (
-                    <Grid key={cheese.id} item>
+                    <Grid key={cheese.id} item data-testid='cheese-item'>
                       <Card 
                         sx={{ 
                           maxWidth: 345,
@@ -52,8 +51,8 @@ function CheeseList(props) {
                           </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                          <Button size="small" onClick={() => handleSelect(cheese)}>Select</Button>
-                          <Button size="small" color='error' onClick={() => handleDelete(cheese.id)}>delete</Button>
+                          <Button size="small" onClick={() => handleSelect(cheese)} data-testid={`select-${cheese.id}`}>Select</Button>
+                          <Button size="small" color='error' onClick={() => handleDelete(cheese.id)} data-testid={`delete-${cheese.id}`}>delete</Button>
                         </CardActions>
                       </Card>
                     </Grid>
